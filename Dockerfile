@@ -1,11 +1,11 @@
 FROM golang:alpine AS builder
 LABEL maintainer="Kyle Manna <kyle@kylemanna.com>"
 
-ENV PKGVER 1.12.0
+ENV PKGVER=1.22.1
 
 # Busybox wget needs TLS support, curl is less painful to get working
 RUN apk add --no-cache ca-certificates curl && \
-    mkdir /go || true && \
+    mkdir -p /go || true && \
     cd /go && \
     mkdir -p src/github.com/syncthing && \
     export SRCDIR=$PWD && \
